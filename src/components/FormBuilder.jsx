@@ -10,14 +10,14 @@ const fieldTypes = [
   { type: "country", label: "Country" },
   { type: "date", label: "Date Picker" },
   { type: "phone", label: "Phone Number" },
-  { type: "section", label: "Section" }, // Add section type
+  { type: "section", label: "Section" }, 
 ];
 
 const FormBuilder = ({ formFields, setFormFields, handleFormChange, removeField, errors }) => {
   const addField = (type, parentId = null) => {
     const newField = { type, id: Date.now(), label: `Field ${formFields.length + 1}` };
     if (type === "section") {
-      newField.children = []; // Initialize children for sections
+      newField.children = []; 
     }
 
     if (parentId) {

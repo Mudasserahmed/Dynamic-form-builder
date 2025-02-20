@@ -1,4 +1,7 @@
 import React from "react";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css"; // Import the styles
+import { isValidPhoneNumber } from "react-phone-number-input";
 
 const fieldTypes = [
   { type: "text", label: "Text Field" },
@@ -13,8 +16,8 @@ const fieldTypes = [
 ];
 
 const FieldRenderer = ({ field, handleFormChange, removeField, errors, addField }) => {
-  const handleChange = (e) => {
-    handleFormChange(field.id, e.target.value);
+  const handleChange = (value) => {
+    handleFormChange(field.id, value || "");
   };
 
   return (
@@ -56,10 +59,10 @@ const FieldRenderer = ({ field, handleFormChange, removeField, errors, addField 
 const renderInput = (field, handleChange) => {
   switch (field.type) {
     case "text":
-      return <input type="text" placeholder="Enter text" onChange={handleChange} />;
+      return <input type="text" placeholder="Enter text" onChange={(e) => handleChange(e.target.value)} />;
     case "dropdown":
       return (
-        <select onChange={handleChange}>
+        <select onChange={(e) => handleChange(e.target.value)}>
           <option value="">Select an option</option>
           <option value="1">Option 1</option>
           <option value="2">Option 2</option>
@@ -69,29 +72,37 @@ const renderInput = (field, handleChange) => {
       return (
         <div className="radio-group">
           <label>
-            <input type="radio" name="radio" value="1" onChange={handleChange} /> Option 1
+            <input type="radio" name="radio" value="1" onChange={(e) => handleChange(e.target.value)} /> Option 1
           </label>
           <label>
-            <input type="radio" name="radio" value="2" onChange={handleChange} /> Option 2
+            <input type="radio" name="radio" value="2" onChange={(e) => handleChange(e.target.value)} /> Option 2
           </label>
         </div>
       );
     case "file":
-      return <input type="file" onChange={handleChange} />;
+      return <input type="file" onChange={(e) => handleChange(e.target.value)} />;
     case "checkbox":
-      return <input type="checkbox" onChange={handleChange} />;
+      return <input type="checkbox" onChange={(e) => handleChange(e.target.checked)} />;
     case "country":
       return (
-        <select onChange={handleChange}>
+        <select onChange={(e) => handleChange(e.target.value)}>
           <option value="US">United States</option>
           <option value="IN">India</option>
           <option value="UK">United Kingdom</option>
         </select>
       );
     case "date":
-      return <input type="date" onChange={handleChange} />;
+      return <input type="date" onChange={(e) => handleChange(e.target.value)} />;
     case "phone":
-      return <input type="tel" placeholder="Enter phone number" onChange={handleChange} />;
+      return (
+        <PhoneInput
+          international
+          defaultCountry="US"
+          placeholder="Enter phone number"
+          value={field.value || ""} 
+          onChange={handleChange}
+        />
+      );
     default:
       return null;
   }

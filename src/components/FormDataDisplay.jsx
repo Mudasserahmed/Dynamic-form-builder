@@ -1,6 +1,10 @@
 import React from "react";
 
 const buildHierarchicalData = (formFields, formData) => {
+  if (!Array.isArray(formFields)) {
+    return {}; 
+  }
+
   return formFields.reduce((acc, field) => {
     if (field.type === "section" && field.children) {
       acc[field.label] = buildHierarchicalData(field.children, formData);

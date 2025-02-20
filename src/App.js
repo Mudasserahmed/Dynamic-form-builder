@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import FormBuilder from "./components/FormBuilder";
 import FormDataDisplay from "./components/FormDataDisplay";
+import { isValidPhoneNumber } from "react-phone-number-input";
 import "./App.css";
 
 const App = () => {
@@ -9,7 +10,7 @@ const App = () => {
   const [errors, setErrors] = useState({});
 
   const handleFormChange = (id, value) => {
-    setFormData((prevData) => ({ ...prevData, [id]: value }));
+    setFormData((prevData) => ({ ...prevData, [id]: value || "" }));
     validateField(id, value);
   };
 
@@ -48,8 +49,8 @@ const App = () => {
       } else if (/\d/.test(value)) {
         error = "Numbers are not allowed in this field.";
       }
-    } else if (field.type === "phone" && !/^\d{10}$/.test(value)) {
-      error = "Invalid phone number. Must be 10 digits.";
+    } else if (field.type === "phone" && !isValidPhoneNumber(value)) {
+      error = "Invalid phone number.";
     } else if (field.type === "date" && !value) {
       error = "Please select a date.";
     } else if (field.type === "dropdown" && !value) {
