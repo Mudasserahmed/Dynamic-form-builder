@@ -1,0 +1,240 @@
+/* General Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+}
+
+h2 {
+  color: #34495e;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+/* Form Builder Section */
+.form-builder {
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.field-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.field-buttons button {
+  padding: 12px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #3498db;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.field-buttons button:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+.field-buttons button:active {
+  transform: translateY(0);
+}
+
+/* Form Preview Section */
+.form-preview {
+  margin-top: 20px;
+}
+
+.field {
+  margin-bottom: 20px;
+}
+
+.field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #2c3e50;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+  outline: none;
+}
+
+.field input[type="file"] {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+.field input[type="checkbox"],
+.field input[type="radio"] {
+  width: auto;
+  margin-right: 10px;
+}
+
+.field .radio-group,
+.field .checkbox-group {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+/* Form Data Display Section */
+.form-data {
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+pre {
+  background-color: #f4f4f4;
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  overflow-x: auto;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .field-buttons {
+    flex-direction: column;
+  }
+
+  .field-buttons button {
+    width: 100%;
+  }
+
+  .app {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+/* Field Header and Remove Button */
+.field-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.remove-button {
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  color: #fff;
+  background-color: #e74c3c;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.remove-button:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+}
+
+.remove-button:active {
+  transform: translateY(0);
+}
+.error-message {
+  color: #e74c3c;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+/* Nested Fields Styles */
+.nested-fields {
+  margin-left: 20px;
+  padding-left: 10px;
+  border-left: 2px solid #3498db;
+}
+
+.nested-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.nested-buttons button {
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.nested-buttons button:hover {
+  background-color: #2980b9;
+}
+/* Form Data Display Styles */
+.form-data {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.field-data {
+  margin-bottom: 10px;
+}
+
+.nested-data {
+  margin-left: 20px;
+  padding-left: 10px;
+  border-left: 2px solid #3498db;
+}
+
+.field-data strong {
+  color: #2c3e50;
+}
